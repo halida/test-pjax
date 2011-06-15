@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Tpjax</title>
+    <%= stylesheet_link_tag :all %>
+    <%= javascript_include_tag "jquery.js", "jquery_ujs.js", "jquery.pjax.js" %>
+    <%= csrf_meta_tag %>
+  </head>
+  <body>
+
+    <ul>
+      <li><a href="/home/a" class="js-pjax" data-pjax="#main">a</a></li>
+    </ul>
+
+    <div id="main">
+      <%= yield %>
+    </div>
+
+    <script type="text/javascript">
+      $('a.js-pjax').pjax("#main");//,{url:'http://g.cn'});
+    </script>
+
+  </body>
+</html>
